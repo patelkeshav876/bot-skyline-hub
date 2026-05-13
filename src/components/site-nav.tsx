@@ -26,7 +26,7 @@ export function SiteNav() {
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           {links.map((l) => {
-            const active = pathname === l.to || (l.to !== "/" && pathname.startsWith(l.to));
+            const active = pathname.startsWith(l.to);
             return (
               <Link
                 key={l.to}
@@ -65,7 +65,7 @@ export function SiteNav() {
       {open && (
         <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-1">
           {links.map((l) => {
-            const active = pathname === l.to || (l.to !== "/" && pathname.startsWith(l.to));
+            const active = pathname.startsWith(l.to);
             return (
               <Link
                 key={l.to}
