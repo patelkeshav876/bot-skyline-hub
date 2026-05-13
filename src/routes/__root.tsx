@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -72,19 +75,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "AXON — Premium Telegram Bot Ecosystem" },
+      { name: "description", content: "AXON is the premium ecosystem for Telegram bots — high-fidelity music streaming, AI moderation, and community analytics." },
+      { name: "author", content: "AXON" },
+      { property: "og:title", content: "AXON — Premium Telegram Bot Ecosystem" },
+      { property: "og:description", content: "Powerful Telegram bots for modern communities." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@axon_protocol" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),
@@ -113,7 +122,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen flex flex-col selection:bg-accent/30">
+        <SiteNav />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+        <Toaster />
+      </div>
     </QueryClientProvider>
   );
 }
