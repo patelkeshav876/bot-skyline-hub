@@ -9,6 +9,7 @@ export const Route = createFileRoute("/features")({
       { property: "og:title", content: "Features — AXON" },
       { property: "og:description", content: "Audio, AI, moderation, analytics, and developer tools." },
     ],
+    links: [{ rel: "canonical", href: "/features" }],
   }),
   component: Features,
 });

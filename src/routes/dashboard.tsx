@@ -9,6 +9,7 @@ export const Route = createFileRoute("/dashboard")({
       { property: "og:title", content: "Dashboard Preview — AXON" },
       { property: "og:description", content: "Manage every bot across every group from one unified dashboard." },
     ],
+    links: [{ rel: "canonical", href: "/dashboard" }],
   }),
   component: Dashboard,
 });

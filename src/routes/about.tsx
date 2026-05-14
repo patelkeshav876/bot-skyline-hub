@@ -6,10 +6,11 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About & Contact — AXON" },
-      { name: "description", content: "Learn about the team building AXON." },
+      { name: "description", content: "Learn about the AXON team and our mission to build premium infrastructure and powerful bots for modern Telegram communities." },
       { property: "og:title", content: "About & Contact — AXON" },
       { property: "og:description", content: "Premium Telegram bot infrastructure for modern communities." },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });

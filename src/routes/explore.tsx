@@ -12,6 +12,7 @@ export const Route = createFileRoute("/explore")({
       { property: "og:title", content: "Explore Bots — AXON" },
       { property: "og:description", content: "Browse the full AXON ecosystem of Telegram bots." },
     ],
+    links: [{ rel: "canonical", href: "/explore" }],
   }),
   component: Explore,
 });

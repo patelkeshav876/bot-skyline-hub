@@ -1,0 +1,18 @@
+# AXON
+
+> Premium ecosystem of Telegram bots — studio-grade music streaming, AI moderation, and deep community analytics for modern communities.
+
+## Pages
+
+- [Home](/): Overview of the AXON Telegram bot ecosystem.
+- [Explore](/explore): Browse all bots — music, AI, security, analytics, and utility.
+- [Features](/features): Capabilities across audio, intelligence, moderation, and analytics.
+- [Pricing](/pricing): Free, Pro, and Enterprise plans.
+- [Dashboard](/dashboard): Preview the unified command center.
+- [About](/about): Team, mission, and contact.
+
+## Bots
+
+- [Axon Audio](/bots/axon-audio): Studio-grade music streaming for Telegram voice chats.
+- [Sentinel AI](/bots/sentinel-ai): AI moderation that stops raids before they start.
+- [Lumina AI](/bots/lumina): GPT-4 and Claude inside every group chat.
