@@ -14,6 +14,28 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "AXON — Powerful Telegram Bots for Modern Communities" },
       { property: "og:description", content: "Studio-grade music, AI moderation, and analytics for serious Telegram communities." },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "AXON",
+          url: "/",
+          description: "Premium ecosystem of Telegram bots for music, AI moderation, and community analytics.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "AXON",
+          url: "/",
+        }),
+      },
+    ],
   }),
   component: Index,
 });
