@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { bots } from "@/data/bots";
+import { bots, type Bot } from "@/data/bots";
 
 export const Route = createFileRoute("/bots/$botId")({
   loader: ({ params }) => {
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/bots/$botId")({
 });
 
 function BotDetail() {
-  const { bot } = Route.useLoaderData();
+  const { bot } = Route.useLoaderData() as { bot: Bot };
   return (
     <div className="px-6 py-12 md:py-20">
       <div className="max-w-5xl mx-auto">
