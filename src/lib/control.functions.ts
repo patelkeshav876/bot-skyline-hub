@@ -153,7 +153,7 @@ export const sendCommand = createServerFn({ method: "POST" })
     const { error } = await supabaseAdmin.from("commands").insert({
       group_id: data.groupId,
       type: data.type,
-      payload: data.payload ?? {},
+      payload: (data.payload ?? {}) as never,
     });
     if (error) throw new Error(error.message);
     return { ok: true };
