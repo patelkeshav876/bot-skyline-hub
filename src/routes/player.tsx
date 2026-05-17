@@ -352,7 +352,10 @@ function NowPlayingBar({ groupId }: { groupId: string | null }) {
   const [localVol, setLocalVol] = useState<number | null>(null);
   const volume = localVol ?? np?.volume ?? 100;
 
-  async function send(type: Parameters<typeof cmd>[0]["data"]["type"], payload?: Record<string, unknown>) {
+  type CmdType =
+    | "play" | "pause" | "resume" | "skip" | "prev"
+    | "seek" | "volume" | "stop" | "reload" | "join" | "leave";
+  async function send(type: CmdType, payload?: Record<string, unknown>) {
     if (!groupId) return;
     try {
       await cmd({ data: { groupId, type, payload } });
