@@ -14,7 +14,160 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      commands: {
+        Row: {
+          consumed_at: string | null
+          created_at: string
+          group_id: string
+          id: string
+          payload: Json
+          status: string
+          type: string
+        }
+        Insert: {
+          consumed_at?: string | null
+          created_at?: string
+          group_id: string
+          id?: string
+          payload?: Json
+          status?: string
+          type: string
+        }
+        Update: {
+          consumed_at?: string | null
+          created_at?: string
+          group_id?: string
+          id?: string
+          payload?: Json
+          status?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commands_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      groups: {
+        Row: {
+          added_at: string
+          chat_id: number
+          id: string
+          title: string
+        }
+        Insert: {
+          added_at?: string
+          chat_id: number
+          id?: string
+          title: string
+        }
+        Update: {
+          added_at?: string
+          chat_id?: number
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      now_playing: {
+        Row: {
+          group_id: string
+          is_paused: boolean
+          position_sec: number
+          queue_id: string | null
+          started_at: string | null
+          updated_at: string
+          volume: number
+        }
+        Insert: {
+          group_id: string
+          is_paused?: boolean
+          position_sec?: number
+          queue_id?: string | null
+          started_at?: string | null
+          updated_at?: string
+          volume?: number
+        }
+        Update: {
+          group_id?: string
+          is_paused?: boolean
+          position_sec?: number
+          queue_id?: string | null
+          started_at?: string | null
+          updated_at?: string
+          volume?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "now_playing_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: true
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "now_playing_queue_id_fkey"
+            columns: ["queue_id"]
+            isOneToOne: false
+            referencedRelation: "queue"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      queue: {
+        Row: {
+          added_at: string
+          artist: string | null
+          duration_sec: number | null
+          group_id: string
+          id: string
+          position: number
+          requested_by: string | null
+          status: string
+          thumbnail_url: string | null
+          title: string
+          url: string
+        }
+        Insert: {
+          added_at?: string
+          artist?: string | null
+          duration_sec?: number | null
+          group_id: string
+          id?: string
+          position?: number
+          requested_by?: string | null
+          status?: string
+          thumbnail_url?: string | null
+          title: string
+          url: string
+        }
+        Update: {
+          added_at?: string
+          artist?: string | null
+          duration_sec?: number | null
+          group_id?: string
+          id?: string
+          position?: number
+          requested_by?: string | null
+          status?: string
+          thumbnail_url?: string | null
+          title?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "queue_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
