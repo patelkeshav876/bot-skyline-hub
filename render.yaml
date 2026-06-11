@@ -2,6 +2,7 @@ services:
   - type: web
     name: ghost-music-bot-backend
     runtime: node
+    nodeVersion: 20
     rootDir: server
     buildCommand: cd server && npm install && npm run build
     startCommand: node dist/index.js
