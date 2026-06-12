@@ -1,16 +1,25 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
+import type { WebSocketLikeConstructor } from '@supabase/realtime-js';
+import WebSocket from 'ws';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+const WebSocketTransport = WebSocket as unknown as WebSocketLikeConstructor;
+
 // Initialize Supabase
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL || '',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  process.env.SUPABASE_SERVICE_ROLE_KEY || '',
+  {
+    realtime: {
+      transport: WebSocketTransport,
+    },
+  }
 );
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8317168943:AAHZ3mZ9Fpmwz0s74uwOKD_qwEN2Sdcqeh4';
